@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -rf /tmp/pdf_ramdisk/*
+exec su -c "/srv/opg-lpa-pdf2/application/current/vendor/bin/dynamo-queue --region {{getv "/dq/region"}} --table {{getv "/dq/table"}} >> /var/log/opg-lpa-pdf2/queue.log 2>&1" opg-lpa-pdf2
